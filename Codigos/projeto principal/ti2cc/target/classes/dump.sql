@@ -9,11 +9,11 @@ CREATE TABLE Golpes (
 );
 
 CREATE TABLE Pessoa (
+    Id SERIAL PRIMARY KEY,
     Login VARCHAR(50) UNIQUE,
     Email VARCHAR(50),
-    password VARCHAR(50),
-    Status BOOLEAN,
-    Id SERIAL PRIMARY KEY
+    Password VARCHAR(50),
+    Status BOOLEAN
 );
 
 CREATE TABLE Comentario (
