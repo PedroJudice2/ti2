@@ -30,16 +30,17 @@ public class UserDAO extends DAO {
         return status;
     }
 
-    public User get(Long id) {
+    public User get(String login) {
         User user = null;
 
         try {
             Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            String sql = "SELECT * FROM Golpes WHERE id=" + id;
+            String sql = "SELECT Id, Login, Email, Status FROM Pessoa WHERE Login LIKE '" + login + "'";
+            System.out.println(sql);
             ResultSet rs = st.executeQuery(sql);
             if (rs.next()) {
-                user = new User(rs.getLong("Id"), rs.getString("Login"), rs.getString("Email"),
-                        rs.getString("Password"));
+                user = new User(rs.getLong("Id"), rs.getString("Login"), rs.getString("Email"), "NULL",
+                        rs.getBoolean("Status"));
             }
             st.close();
         } catch (Exception e) {
@@ -53,7 +54,7 @@ public class UserDAO extends DAO {
 
         try {
             Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            String sql = "SELECT * FROM Pessoa WHERE login LIKE '" + login + "' AND password LIKE '" + password + "'";
+            String sql = "SELECT * FROM Pessoa WHERE Login LIKE '" + login + "' AND Password LIKE '" + password + "'";
             System.out.println(sql);
             ResultSet rs = st.executeQuery(sql);
             resp = rs.next();

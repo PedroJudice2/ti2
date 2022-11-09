@@ -122,10 +122,20 @@
   }
 </script>
 
+<script type="text/javascript">
+    function GetUserName()
+    {
+        var username = user
+    }
+    function docWrite(variable) {
+    document.write(variable);
+}
+</script> 
+
 </head>
 <body>
 
-    <header class="header">
+    <header class="header" onload="GetUserName()">
     <!-- Barra de navegação superior -->
  
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -168,12 +178,18 @@
                         <!-- href temporario -->
                         <a class="nav-link" href="comentarios.html">Comentarios</a>
                     </li>
+                    <li class="nav-item">
+                        <!-- href temporario -->
+                        <a class="nav-link" href="add_golpe.html">adicionar golpes</a>
+                    </li>
                 </ul>
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Pesquisar Golpe" aria-label="Search">
                 </form>
                 <a href="pesquisa.html"><button class="btn btn-outline-light" type="submit">Pesquisar</button></a>
-                <a href="login.html"><button class="btn btn-outline-light" type="submit">Login</button></a> 
+                <input type="hidden" id="jsonData" value="${nomeUser}">
+                <a><script>docWrite(jsonData)</script></a>
+                
             </div>
         </div>
     </nav>

@@ -3,7 +3,7 @@
 CREATE TABLE Golpes (
     Nome VARCHAR(20) UNIQUE,
     Tipo VARCHAR(15),
-    periculosidade VARCHAR(5),
+    Periculosidade VARCHAR(5),
     Frequencia VARCHAR(5),
     Id SERIAL PRIMARY KEY
 );

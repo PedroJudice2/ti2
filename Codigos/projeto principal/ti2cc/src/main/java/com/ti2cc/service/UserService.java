@@ -8,6 +8,7 @@ import com.ti2cc.model.User;
 
 import spark.Request;
 import spark.Response;
+import spark.Session;
 
 public class UserService {
     private static UserDAO userDAO = new UserDAO();
@@ -43,7 +44,19 @@ public class UserService {
         String resp = "";
 
         if (userDAO.autenticate(login, password)) {
-            resp = "Usuario (" + login + ") logado";
+            User user = userDAO.get(login);
+            // create session
+            Session session = request.session(true);
+            session.attribute("UserId", user.getId());
+            Long teste = session.attribute("UserId");
+            System.out.println(teste);
+            request.attribute("nomeUser", teste);
+            if ((user.getStatus())) {
+                resp = "<meta http-equiv= \"refresh\" content= \"0; url=/indexADM.html\" />";
+            } else {
+                resp = "<meta http-equiv= \"refresh\" content= \"0; url=/indexNormal.html\" />";
+            }
+
             response.status(201); // 201 Created
         } else {
             resp = "Golpe (" + login + ") não logado";

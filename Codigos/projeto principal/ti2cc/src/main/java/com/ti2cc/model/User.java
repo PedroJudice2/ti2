@@ -20,6 +20,14 @@ public class User {
         this.status = false;
     }
 
+    public User(Long id, String login, String email, String password, boolean status) {
+        this.id = id;
+        this.login = login;
+        this.email = email;
+        this.password = password;
+        this.status = status;
+    }
+
     public Long getId() {
         return this.id;
     }

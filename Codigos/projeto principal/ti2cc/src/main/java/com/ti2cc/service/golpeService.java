@@ -25,7 +25,7 @@ public class golpeService {
         golpe.setFrequencia(frequencia);
 
         if (golpeDAO.insert(golpe) == true) {
-            resp = "Golpe (" + nome + ") inserido!";
+            resp = "Golpe (" + nome + ") inserido! + ";
             response.status(201); // 201 Created
         } else {
             resp = "Golpe (" + nome + ") não inserido!";
