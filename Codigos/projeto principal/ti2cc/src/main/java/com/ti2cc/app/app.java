@@ -2,6 +2,7 @@ package com.ti2cc.app;
 
 import static spark.Spark.*;
 
+import com.ti2cc.service.ComentarioService;
 import com.ti2cc.service.UserService;
 import com.ti2cc.service.golpeService;
 
@@ -20,5 +21,7 @@ public class app {
         post("/insertUser", (request, response) -> UserService.insert(request, response));
         post("/AuthUser", (request, response) -> UserService.autenticate(request, response));
 
+        // lambada for comentario
+        post("/insertGolpe", (request, response) -> ComentarioService.insert(request, response));
     }
 }

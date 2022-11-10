@@ -27,7 +27,7 @@ public class UserService {
         user.setStatus();
 
         if (userDAO.insert(user) == true) {
-            resp = "Usuario (" + login + ") inserido!";
+            resp = "<meta http-equiv= \"refresh\" content= \"0; url=/login.html\" />";
             response.status(201); // 201 Created
         } else {
             resp = "Usuario (" + login + ") não inserido!";
