@@ -1,0 +1,34 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    background-color: white;
+}
+
+footer{
+    position: absolute;
+    bottom:100;
+    left: 0;
+    width: 100%;
+}
+
+img{
+    float: left;
+}
+
+.imgboleto{
+width: 300px;
+height: 300px;
+}
+
+.imggolpe{
+width: 300px;
+height: 300px;
+}
+
+img.navbar-brand {
+    width: 50px;
+    height: 50px;
+    margin-right: 25px;
+}
